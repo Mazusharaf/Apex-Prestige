@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "wouter";
 import { motion } from "framer-motion";
 import rollsImg from "@assets/10973330-a988-4d17-b05e-25d9fa6d91d6_1780237795691.png";
 import bentleyImg from "@assets/14bba46b-e1e9-4b2f-a6cd-48e4651acd8a_1780237795691.png";
@@ -156,10 +157,10 @@ const TESTIMONIALS = [
 ];
 
 const STEPS = [
-  { num: "01", title: "Choose Vehicle", desc: "Browse our fleet and select your dream car." },
-  { num: "02", title: "Book Online", desc: "Fill out our simple booking form in minutes." },
-  { num: "03", title: "Confirm & Pay", desc: "Secure your reservation with easy payment." },
-  { num: "04", title: "Get Delivered", desc: "We bring the car to your door in 90 minutes." },
+  { num: "01", title: "Choose Vehicle", desc: "Browse our fleet and select your dream car.", href: "/fleet" },
+  { num: "02", title: "Book Online", desc: "Fill out our simple booking form in minutes.", href: "/fleet" },
+  { num: "03", title: "Confirm & Pay", desc: "Secure your reservation with easy payment.", href: "/contact" },
+  { num: "04", title: "Get Delivered", desc: "We bring the car to your door in 90 minutes.", href: null },
 ];
 
 const FAQS = [
@@ -318,21 +319,23 @@ export default function Home() {
             variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <Button
-              onClick={() => scrollTo("#fleet")}
-              className="bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg px-8 h-12 text-sm tracking-wide border-0"
-              data-testid="hero-explore"
-            >
-              Explore Fleet
-            </Button>
-            <Button
-              onClick={() => scrollTo("#contact")}
-              variant="outline"
-              className="rounded-lg px-8 h-12 text-sm tracking-wide border-white/30 text-white bg-transparent hover:bg-white/10 hover:border-white/50"
-              data-testid="hero-book"
-            >
-              Book Now
-            </Button>
+            <Link href="/fleet">
+              <Button
+                className="bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg px-8 h-12 text-sm tracking-wide border-0"
+                data-testid="hero-explore"
+              >
+                Explore Fleet
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button
+                variant="outline"
+                className="rounded-lg px-8 h-12 text-sm tracking-wide border-white/30 text-white bg-transparent hover:bg-white/10 hover:border-white/50"
+                data-testid="hero-book"
+              >
+                Book Now
+              </Button>
+            </Link>
           </motion.div>
         </motion.div>
 
@@ -379,12 +382,12 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold">Choose Your Ride</h2>
-            <button
-              onClick={() => scrollTo("#contact")}
+            <Link
+              href="/fleet"
               className="text-sm text-gray-400 hover:text-white flex items-center gap-1 transition-colors"
             >
               View All <ChevronRight className="w-4 h-4" />
-            </button>
+            </Link>
           </motion.div>
 
           <motion.div
@@ -415,14 +418,15 @@ export default function Home() {
                 <div className="p-5">
                   <h3 className="text-lg font-bold text-white">{car.make}</h3>
                   <p className="text-sm text-gray-500 mb-4">{car.model}</p>
-                  <Button
-                    onClick={() => scrollTo("#contact")}
-                    variant="outline"
-                    className="w-full rounded-lg border-white/15 text-white bg-transparent hover:bg-red-600 hover:border-red-600 hover:text-white text-sm h-9 transition-all duration-200"
-                    data-testid={`fleet-see-more-${i}`}
-                  >
-                    Book now
-                  </Button>
+                  <Link href="/fleet">
+                    <Button
+                      variant="outline"
+                      className="w-full rounded-lg border-white/15 text-white bg-transparent hover:bg-red-600 hover:border-red-600 hover:text-white text-sm h-9 transition-all duration-200"
+                      data-testid={`fleet-see-more-${i}`}
+                    >
+                      View Details
+                    </Button>
+                  </Link>
                 </div>
               </motion.div>
             ))}
@@ -536,21 +540,28 @@ export default function Home() {
             viewport={inView}
           >
             <div className="hidden md:block absolute top-8 left-[12.5%] right-[12.5%] h-px bg-white/8 z-0" />
-            {STEPS.map((step, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                transition={{ duration: 0.5 }}
-                className="relative z-10 flex flex-col items-center text-center gap-4"
-                data-testid={`step-${i}`}
-              >
-                <div className="w-16 h-16 rounded-full bg-[#1a1a1a] border border-red-600/30 flex items-center justify-center">
-                  <span className="text-red-500 font-bold text-lg">{step.num}</span>
-                </div>
-                <h3 className="font-semibold text-white">{step.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{step.desc}</p>
-              </motion.div>
-            ))}
+            {STEPS.map((step, i) => {
+              const inner = (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  transition={{ duration: 0.5 }}
+                  className={`relative z-10 flex flex-col items-center text-center gap-4 group ${step.href ? "cursor-pointer" : ""}`}
+                  data-testid={`step-${i}`}
+                >
+                  <div className={`w-16 h-16 rounded-full bg-[#1a1a1a] border border-red-600/30 flex items-center justify-center transition-all ${step.href ? "group-hover:bg-red-600/20 group-hover:border-red-500" : ""}`}>
+                    <span className="text-red-500 font-bold text-lg">{step.num}</span>
+                  </div>
+                  <h3 className={`font-semibold text-white ${step.href ? "group-hover:text-red-400 transition-colors" : ""}`}>{step.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{step.desc}</p>
+                </motion.div>
+              );
+              return step.href ? (
+                <Link key={i} href={step.href}>{inner}</Link>
+              ) : (
+                <div key={i}>{inner}</div>
+              );
+            })}
           </motion.div>
         </div>
       </section>
@@ -566,7 +577,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a]" />
         </div>
         <motion.div
-          className="relative z-10 max-w-7xl mx-auto px-6 text-center"
+          className="relative z-10 max-w-7xl mx-auto px-6 text-center space-y-8"
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
@@ -577,6 +588,18 @@ export default function Home() {
             Premium service,<br />
             <span className="text-red-600">zero hassle.</span>
           </h2>
+          <div className="flex flex-wrap justify-center gap-4 pt-2">
+            <Link href="/fleet">
+              <Button className="bg-red-600 hover:bg-red-700 text-white font-semibold rounded-full px-10 h-12 text-sm tracking-wide border-0">
+                Browse the Fleet
+              </Button>
+            </Link>
+            <Link href="/about">
+              <Button variant="outline" className="rounded-full px-10 h-12 text-sm tracking-wide border-white/30 text-white bg-transparent hover:bg-white/10">
+                Our Story
+              </Button>
+            </Link>
+          </div>
         </motion.div>
       </section>
 
@@ -635,13 +658,24 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <Button
-              onClick={() => scrollTo("#contact")}
-              className="mt-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg px-8 h-11 text-sm tracking-wide border-0"
-              data-testid="about-cta"
-            >
-              Start Your Experience
-            </Button>
+            <div className="flex flex-wrap gap-3 mt-2">
+              <Link href="/about">
+                <Button
+                  variant="outline"
+                  className="border-white/20 text-white bg-transparent hover:bg-white/10 rounded-lg px-6 h-11 text-sm tracking-wide"
+                >
+                  Learn More
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button
+                  className="bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg px-8 h-11 text-sm tracking-wide border-0"
+                  data-testid="about-cta"
+                >
+                  Start Your Experience
+                </Button>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -764,7 +798,11 @@ export default function Home() {
               Frequently<br />Asked<br />Questions
             </h2>
             <p className="text-gray-500 text-sm mt-4 leading-relaxed">
-              Still have questions? Reach out to our concierge team anytime.
+              Still have questions?{" "}
+              <Link href="/contact" className="text-red-500 hover:text-red-400 underline transition-colors">
+                Reach out to our concierge team
+              </Link>{" "}
+              anytime.
             </p>
           </motion.div>
           <motion.div
