@@ -5,11 +5,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 export function Footer() {
-  const scrollTo = (id: string) => {
-    const el = document.querySelector(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <footer className="bg-[#080808] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 pt-16 pb-8">
@@ -51,16 +46,15 @@ export function Footer() {
             <h4 className="text-xs font-semibold tracking-widest uppercase text-white">Company</h4>
             <ul className="space-y-3 text-sm text-gray-500">
               {[
-                { label: "Home", action: () => window.scrollTo({ top: 0, behavior: "smooth" }) },
-                { label: "Our Fleet", action: () => scrollTo("#fleet") },
-                { label: "About Us", action: () => scrollTo("#about") },
-                { label: "Testimonials", action: () => scrollTo("#testimonials") },
-                { label: "News", action: () => scrollTo("#news") },
+                { label: "Home", href: "/" },
+                { label: "Our Fleet", href: "/fleet" },
+                { label: "About Us", href: "/about" },
+                { label: "Contact", href: "/contact" },
               ].map((item) => (
                 <li key={item.label}>
-                  <button onClick={item.action} className="hover:text-white transition-colors text-left">
+                  <Link href={item.href} className="hover:text-white transition-colors">
                     {item.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -80,9 +74,9 @@ export function Footer() {
                 "Privacy Policy",
               ].map((s) => (
                 <li key={s}>
-                  <button onClick={() => scrollTo("#contact")} className="hover:text-white transition-colors text-left">
+                  <Link href="/contact" className="hover:text-white transition-colors">
                     {s}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>

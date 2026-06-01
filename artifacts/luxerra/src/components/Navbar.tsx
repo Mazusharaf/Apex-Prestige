@@ -17,16 +17,10 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Fleet", path: "#fleet" },
-    { name: "About", path: "#about" },
-    { name: "Contact", path: "#contact" },
+    { name: "Fleet", path: "/fleet" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
   ];
-
-  const scrollTo = (id: string) => {
-    const el = document.querySelector(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-    setMobileMenuOpen(false);
-  };
 
   return (
     <nav
@@ -40,29 +34,18 @@ export function Navbar() {
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) =>
-            link.path.startsWith("#") ? (
-              <button
-                key={link.name}
-                onClick={() => scrollTo(link.path)}
-                className="text-sm text-gray-300 hover:text-white transition-colors tracking-wide"
-                data-testid={`nav-${link.name.toLowerCase()}`}
-              >
-                {link.name}
-              </button>
-            ) : (
-              <Link
-                key={link.name}
-                href={link.path}
-                className={`text-sm tracking-wide transition-colors ${
-                  location === link.path ? "text-white" : "text-gray-300 hover:text-white"
-                }`}
-                data-testid={`nav-${link.name.toLowerCase()}`}
-              >
-                {link.name}
-              </Link>
-            )
-          )}
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.path}
+              className={`text-sm tracking-wide transition-colors ${
+                location === link.path ? "text-white" : "text-gray-300 hover:text-white"
+              }`}
+              data-testid={`nav-${link.name.toLowerCase()}`}
+            >
+              {link.name}
+            </Link>
+          ))}
         </div>
 
         <div className="hidden md:flex items-center gap-5">
@@ -74,13 +57,14 @@ export function Navbar() {
             <Phone className="w-4 h-4" />
             (404) 555-0192
           </a>
-          <Button
-            onClick={() => scrollTo("#contact")}
-            className="bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg px-6 h-9 text-sm tracking-wide border-0"
-            data-testid="nav-book-now"
-          >
-            Book Now
-          </Button>
+          <Link href="/fleet">
+            <Button
+              className="bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg px-6 h-9 text-sm tracking-wide border-0"
+              data-testid="nav-book-now"
+            >
+              Book Now
+            </Button>
+          </Link>
         </div>
 
         <button
@@ -94,32 +78,23 @@ export function Navbar() {
 
       {mobileMenuOpen && (
         <div className="md:hidden bg-black border-b border-white/5 px-6 py-6 flex flex-col gap-5">
-          {navLinks.map((link) =>
-            link.path.startsWith("#") ? (
-              <button
-                key={link.name}
-                onClick={() => scrollTo(link.path)}
-                className="text-left text-base text-gray-300 hover:text-white transition-colors"
-              >
-                {link.name}
-              </button>
-            ) : (
-              <Link
-                key={link.name}
-                href={link.path}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-base text-gray-300 hover:text-white transition-colors"
-              >
-                {link.name}
-              </Link>
-            )
-          )}
-          <Button
-            onClick={() => scrollTo("#contact")}
-            className="mt-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg w-full"
-          >
-            Book Now
-          </Button>
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.path}
+              onClick={() => setMobileMenuOpen(false)}
+              className={`text-base transition-colors ${
+                location === link.path ? "text-white font-medium" : "text-gray-300 hover:text-white"
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
+          <Link href="/fleet" onClick={() => setMobileMenuOpen(false)}>
+            <Button className="mt-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg w-full">
+              Book Now
+            </Button>
+          </Link>
         </div>
       )}
     </nav>
