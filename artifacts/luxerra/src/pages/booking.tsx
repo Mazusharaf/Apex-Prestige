@@ -5,13 +5,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Link, useSearch } from "wouter";
-import { CARS, getCarBySlug, type Car } from "@/data/cars";
+import { getCarBySlug, type Car } from "@/data/cars";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, Upload, Check, Calendar, User, FileText, Star, X, ArrowLeft } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 
 const STEPS = [
@@ -53,8 +60,7 @@ export default function Booking() {
   const params = new URLSearchParams(search);
   const slugFromQuery = params.get("car") ?? "";
 
-  const [selectedSlug, setSelectedSlug] = useState(slugFromQuery);
-  const car: Car | undefined = getCarBySlug(selectedSlug);
+  const car: Car | undefined = getCarBySlug(slugFromQuery);
 
   const { toast } = useToast();
   const [step, setStep] = useState(1);
@@ -128,19 +134,35 @@ export default function Booking() {
           {/* Left: Vehicle Summary */}
           <motion.div variants={fadeUp} initial="hidden" animate="show" transition={{ duration: 0.5, delay: 0.1 }} className="lg:col-span-2 space-y-5">
 
-            {/* Car Selector */}
+            {/* Selected Vehicle */}
             <div className="bg-[#111] border border-white/5 rounded-2xl p-5">
-              <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Selected Vehicle</p>
-              <select
-                value={selectedSlug}
-                onChange={(e) => { setSelectedSlug(e.target.value); resetBooking(); }}
-                className="w-full bg-[#1a1a1a] border border-white/10 h-11 rounded-xl px-3 text-sm text-white focus:outline-none focus:ring-1 focus:ring-red-500"
-              >
-                <option value="">Choose a vehicle...</option>
-                {CARS.map((c) => (
-                  <option key={c.slug} value={c.slug}>{c.name} | ${c.price}/day</option>
-                ))}
-              </select>
+              <div className="flex items-center justify-between mb-3">
+                <p className="text-xs text-gray-500 uppercase tracking-widest">Selected Vehicle</p>
+                {car && (
+                  <Link
+                    href="/fleet"
+                    className="text-xs text-gray-400 hover:text-red-400 transition-colors inline-flex items-center gap-1"
+                  >
+                    Change <ChevronRight className="w-3 h-3" />
+                  </Link>
+                )}
+              </div>
+              {car ? (
+                <div className="bg-[#1a1a1a] border border-white/10 rounded-xl h-11 px-4 flex items-center justify-between">
+                  <span className="text-sm font-medium text-white truncate">{car.name}</span>
+                  <span className="text-sm text-red-400 font-semibold shrink-0 ml-3">${car.price}/day</span>
+                </div>
+              ) : (
+                <Link
+                  href="/fleet"
+                  className="block bg-[#1a1a1a] border border-dashed border-white/15 rounded-xl h-11 px-4 flex items-center justify-between hover:border-red-500/40 hover:bg-red-500/5 transition-colors group"
+                >
+                  <span className="text-sm text-gray-500 group-hover:text-gray-300">No vehicle selected</span>
+                  <span className="text-xs text-red-400 inline-flex items-center gap-1">
+                    Browse fleet <ChevronRight className="w-3 h-3" />
+                  </span>
+                </Link>
+              )}
             </div>
 
             {/* Car Summary Card */}
@@ -292,12 +314,30 @@ export default function Booking() {
                               <FormField control={form.control} name="pickupLocation" render={({ field }) => (
                                 <FormItem>
                                   <FormLabel className="text-gray-400 text-xs uppercase tracking-wide">Delivery Location</FormLabel>
-                                  <FormControl>
-                                    <select {...field} className="w-full bg-[#1a1a1a] border border-white/10 h-11 rounded-xl px-3 text-sm text-white focus:outline-none focus:ring-1 focus:ring-red-500">
-                                      <option value="">Select location...</option>
-                                      {PICKUP_LOCATIONS.map((l) => <option key={l} value={l}>{l}</option>)}
-                                    </select>
-                                  </FormControl>
+                                  <Select value={field.value || undefined} onValueChange={field.onChange}>
+                                    <FormControl>
+                                      <SelectTrigger
+                                        className="w-full bg-[#1a1a1a] border-white/10 h-11 rounded-xl px-3 text-sm text-white hover:bg-[#1f1f1f] focus:ring-1 focus:ring-red-500 focus:ring-offset-0 data-[placeholder]:text-gray-500 [&>svg]:text-gray-400"
+                                        data-testid="select-location"
+                                      >
+                                        <SelectValue placeholder="Select location..." />
+                                      </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent
+                                      className="bg-[#1a1a1a] border-white/10 text-white rounded-xl shadow-2xl"
+                                      position="popper"
+                                    >
+                                      {PICKUP_LOCATIONS.map((l) => (
+                                        <SelectItem
+                                          key={l}
+                                          value={l}
+                                          className="text-sm text-gray-200 focus:bg-red-600/20 focus:text-white data-[state=checked]:text-red-400 rounded-lg cursor-pointer"
+                                        >
+                                          {l}
+                                        </SelectItem>
+                                      ))}
+                                    </SelectContent>
+                                  </Select>
                                   <FormMessage />
                                 </FormItem>
                               )} />
