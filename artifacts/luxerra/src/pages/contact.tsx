@@ -51,9 +51,9 @@ const CONTACT_INFO = [
   {
     icon: MapPin,
     label: "Location",
-    value: "Atlanta, Georgia",
+    value: "697 Hilltop St, Springfield, MA",
     sub: "Metro-wide delivery available",
-    href: null,
+    href: "https://maps.google.com/maps?q=697+Hilltop+St,+Springfield,+MA",
   },
   {
     icon: Clock,
@@ -132,18 +132,23 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            {/* Map placeholder */}
+            {/* Map */}
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }} className="rounded-2xl overflow-hidden border border-white/5">
-              <img
-                src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=800"
-                alt="Atlanta"
-                className="w-full h-52 object-cover"
+              <iframe
+                title="Our Location"
+                src="https://maps.google.com/maps?q=697+Hilltop+St,+Springfield,+MA+01109&output=embed&z=15"
+                width="100%"
+                height="208"
+                style={{ border: 0, display: "block" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
               />
               <div className="bg-[#111] px-5 py-4 flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-red-500 shrink-0" />
                 <div>
-                  <p className="text-sm font-medium">Serving Metro Atlanta</p>
-                  <p className="text-xs text-gray-500">Delivery across the entire Atlanta metro area</p>
+                  <p className="text-sm font-medium">697 Hilltop St, Springfield, MA</p>
+                  <p className="text-xs text-gray-500">Metro-wide delivery available</p>
                 </div>
               </div>
             </motion.div>

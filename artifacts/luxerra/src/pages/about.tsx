@@ -26,7 +26,7 @@ const TEAM = [
 
 const STATS = [
   { value: "500+", label: "Happy Clients" },
-  { value: "8", label: "Years in Atlanta" },
+  { value: "8", label: "Years in Business" },
   { value: "18", label: "Vehicles in Fleet" },
   { value: "4.9★", label: "Average Rating" },
 ];
@@ -34,10 +34,10 @@ const STATS = [
 const VALUES = [
   { icon: Shield, title: "Fully Insured", desc: "Every vehicle and every driver is covered with comprehensive insurance from the moment you take the wheel." },
   { icon: Star, title: "White-Glove Service", desc: "We deliver the car to you, brief you on every feature, and remain on call for the duration of your rental." },
-  { icon: Clock, title: "90-Minute Delivery", desc: "Select your vehicle, confirm your booking, and we'll have it at your door within 90 minutes anywhere in Atlanta." },
+  { icon: Clock, title: "90-Minute Delivery", desc: "Select your vehicle, confirm your booking, and we'll have it at your door within 90 minutes anywhere in Springfield." },
   { icon: Award, title: "Show-Room Condition", desc: "Each vehicle is hand-detailed before every rental — inside, outside, and mechanically inspected." },
   { icon: Users, title: "Dedicated Concierge", desc: "A personal concierge is assigned to every booking to handle any request from first contact to return." },
-  { icon: MapPin, title: "Atlanta Coverage", desc: "We deliver across the entire metro Atlanta area — downtown, Buckhead, Midtown, the airport, and beyond." },
+  { icon: MapPin, title: "Springfield Coverage", desc: "We deliver across the entire Springfield metro area — and beyond. Metro-wide delivery available." },
 ];
 
 const fadeUp = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0 } };
@@ -55,10 +55,10 @@ export default function About() {
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.6 }} className="space-y-6">
               <p className="text-xs font-semibold tracking-widest uppercase text-red-500">Our Story</p>
               <h1 className="text-5xl md:text-6xl font-bold tracking-tight leading-tight">
-                Atlanta's Premier<br />Exotic Car Experience
+                Springfield's Premier<br />Exotic Car Experience
               </h1>
               <p className="text-gray-400 text-lg leading-relaxed">
-                Founded in 2018, Apex Prestige was born from a simple belief: extraordinary vehicles deserve extraordinary experiences. What started as a single Porsche and a passion for performance has grown into Atlanta's most trusted exotic car rental company.
+                Founded in 2018, Apex Prestige was born from a simple belief: extraordinary vehicles deserve extraordinary experiences. What started as a single Porsche and a passion for performance has grown into Springfield's most trusted exotic car rental company.
               </p>
               <p className="text-gray-500 leading-relaxed">
                 We're not just a rental company. We're curators of experiences — pairing you with the world's finest machines and wrapping the entire process in concierge-level service that removes every friction point. From first contact to final handoff, the entire experience is as premium as the vehicles themselves.
@@ -74,7 +74,7 @@ export default function About() {
               </div>
               <div className="absolute -bottom-6 -left-6 bg-red-600 rounded-2xl p-5 shadow-2xl">
                 <p className="text-3xl font-bold">2018</p>
-                <p className="text-sm text-red-200">Founded in Atlanta</p>
+                <p className="text-sm text-red-200">Founded in Springfield</p>
               </div>
             </motion.div>
           </div>

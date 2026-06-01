@@ -68,7 +68,7 @@ const FLEET = [
 const TESTIMONIALS = [
   {
     name: "Marcus T.",
-    role: "CEO, Atlanta",
+    role: "CEO, Springfield",
     rating: 5,
     avatar: "https://randomuser.me/api/portraits/men/32.jpg",
     quote:
@@ -150,7 +150,7 @@ const FAQS = [
   },
   {
     q: "Do you offer delivery and pickup?",
-    a: "Yes. We deliver anywhere in the Atlanta metro area. Delivery is complimentary within 20 miles; fees apply beyond that.",
+    a: "Yes. We deliver anywhere in the Springfield metro area. Delivery is complimentary within 20 miles; fees apply beyond that.",
   },
   {
     q: "What is your cancellation policy?",
@@ -252,7 +252,7 @@ export default function Home() {
             variants={{ hidden: { opacity: 0, x: -40 }, show: { opacity: 1, x: 0 } }}
             transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            Atlanta's Premier Exotic Car Rental
+            Springfield's Premier Exotic Car Rental
           </motion.p>
 
           {/* Headline — line by line */}
@@ -276,7 +276,7 @@ export default function Home() {
               variants={{ hidden: { opacity: 0, y: 50 }, show: { opacity: 1, y: 0 } }}
               transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              Atlanta
+              Springfield
             </motion.span>
           </h1>
 
@@ -598,7 +598,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f]/50 to-transparent" />
             <div className="absolute bottom-5 left-5 bg-black/85 border border-red-600/30 rounded-xl px-6 py-4">
               <div className="text-3xl font-black text-red-600">8+</div>
-              <div className="text-xs text-gray-300 tracking-wider uppercase">Years in Atlanta</div>
+              <div className="text-xs text-gray-300 tracking-wider uppercase">Years in Business</div>
             </div>
           </motion.div>
           <motion.div
@@ -611,10 +611,10 @@ export default function Home() {
           >
             <p className="text-red-500 text-xs tracking-[0.3em] uppercase">Our Story</p>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-              Atlanta's Most Trusted<br />Exotic Rental Experience
+              Springfield's Most Trusted<br />Exotic Rental Experience
             </h2>
             <p className="text-gray-400 leading-relaxed text-sm">
-              Apex Prestige was founded on a simple belief: everyone deserves to experience what it feels like to drive the world's most extraordinary automobiles. We serve Atlanta's most discerning clientele from executives and celebrities to enthusiasts and newlyweds.
+              Apex Prestige was founded on a simple belief: everyone deserves to experience what it feels like to drive the world's most extraordinary automobiles. We serve Springfield's most discerning clientele from executives and celebrities to enthusiasts and newlyweds.
             </p>
             <p className="text-gray-400 leading-relaxed text-sm">
               Every vehicle in our fleet is hand-selected and meticulously maintained. We don't just rent cars we curate unforgettable experiences, one drive at a time.
@@ -719,7 +719,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-3">Services</h2>
-            <p className="text-gray-400 text-sm italic">Luxury car rentals in Atlanta.</p>
+            <p className="text-gray-400 text-sm italic">Luxury car rentals in Springfield, MA.</p>
           </motion.div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.img
@@ -825,7 +825,7 @@ export default function Home() {
               {[
                 { icon: <Phone className="w-4 h-4" />, label: "Phone", val: "(404) 555-0192" },
                 { icon: <Mail className="w-4 h-4" />, label: "Email", val: "hello@apexprestige.shop" },
-                { icon: <MapPin className="w-4 h-4" />, label: "Location", val: "Atlanta, Georgia" },
+                { icon: <MapPin className="w-4 h-4" />, label: "Location", val: "697 Hilltop St, Springfield, MA" },
                 { icon: <Clock className="w-4 h-4" />, label: "Hours", val: "Mon–Sun, 8 AM – 10 PM" },
               ].map((info, i) => (
                 <div key={i} className="flex items-center gap-4" data-testid={`contact-info-${i}`}>

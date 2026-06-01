@@ -15,12 +15,12 @@ export function Footer() {
               <img src={logoSrc} alt="Apex Prestige" className="h-10 w-auto object-contain" />
             </Link>
             <p className="text-sm text-gray-500 leading-relaxed">
-              Atlanta's premier exotic car rental — delivering extraordinary vehicles to your door since 2018.
+              Springfield's premier exotic car rental — delivering extraordinary vehicles to your door since 2018.
             </p>
             <div className="space-y-2 text-sm text-gray-500">
               <div className="flex items-center gap-2.5">
                 <MapPin className="w-3.5 h-3.5 text-red-600 shrink-0" />
-                <span>Atlanta, Georgia, USA</span>
+                <span>697 Hilltop St, Springfield, MA</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-3.5 h-3.5 text-red-600 shrink-0" />
