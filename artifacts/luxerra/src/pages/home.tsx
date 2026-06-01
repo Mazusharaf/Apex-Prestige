@@ -72,7 +72,7 @@ const TESTIMONIALS = [
     rating: 5,
     avatar: "https://randomuser.me/api/portraits/men/32.jpg",
     quote:
-      "Rented the Cullinan for a weekend — absolutely flawless. Delivery was on time, the car was spotless, and the team was incredibly professional.",
+      "Rented the Cullinan for a weekend. Absolutely flawless. Delivery was on time, the car was spotless, and the team was incredibly professional.",
   },
   {
     name: "Jasmine R.",
@@ -88,7 +88,7 @@ const TESTIMONIALS = [
     rating: 5,
     avatar: "https://randomuser.me/api/portraits/men/75.jpg",
     quote:
-      "Nobody compares to Apex. The concierge service alone is worth it — they brought the Ferrari right to my hotel. Unreal experience.",
+      "Nobody compares to Apex. The concierge service alone is worth it. They brought the car right to my hotel. Unreal experience.",
   },
   {
     name: "Aaliyah M.",
@@ -120,7 +120,7 @@ const TESTIMONIALS = [
     rating: 5,
     avatar: "https://randomuser.me/api/portraits/men/19.jpg",
     quote:
-      "Booked a Rolls for a video shoot — delivered early, spotless, and the concierge checked in throughout the whole day. Five stars doesn't cover it.",
+      "Booked a Rolls for a video shoot. Delivered early, spotless, and the concierge checked in throughout the whole day. Five stars doesn't cover it.",
   },
   {
     name: "Simone D.",
@@ -255,7 +255,7 @@ export default function Home() {
             Springfield's Premier Exotic Car Rental
           </motion.p>
 
-          {/* Headline — line by line */}
+          {/* Headline */}
           <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight text-white mb-6 max-w-xl">
             <motion.span
               className="block"

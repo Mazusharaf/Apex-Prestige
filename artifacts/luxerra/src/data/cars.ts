@@ -38,7 +38,7 @@ export const CARS: Car[] = [
     ],
     specs: { topSpeed: "250 km/h", zeroToSixty: "5.0 sec", horsepower: "563 hp", engine: "6.75L Twin-Turbo V12", transmission: "8-Speed Auto", seats: 5 },
     features: ["Starlight Headliner", "Spirit of Ecstasy", "Magic Carpet Ride Air Suspension", "Night Vision Assist", "Bespoke Audio System", "Panoramic Glass Roof"],
-    description: "The Rolls-Royce Cullinan is the pinnacle of luxury SUVs — the first and only Rolls-Royce to take its effortless luxury off-road. Commanding, refined, and utterly opulent, it redefines what an SUV can be.",
+    description: "The Rolls-Royce Cullinan is the pinnacle of luxury SUVs, the first and only Rolls-Royce to take its effortless luxury off-road. Commanding, refined, and utterly opulent, it redefines what an SUV can be.",
     tagline: "Effortless, everywhere.",
   },
   {
@@ -55,7 +55,7 @@ export const CARS: Car[] = [
     ],
     specs: { topSpeed: "291 km/h", zeroToSixty: "4.4 sec", horsepower: "542 hp", engine: "4.0L Twin-Turbo V8", transmission: "8-Speed DSG", seats: 5 },
     features: ["Hand-Stitched Leather", "Bentley Dynamic Ride", "Rotating Display", "Naim Audio System", "Four-Zone Climate", "Massage Seats"],
-    description: "The Bentley Bentayga blends extraordinary performance with unparalleled craftsmanship. Every inch of its interior is hand-finished by master craftsmen in Crewe, England — true automotive artistry.",
+    description: "The Bentley Bentayga blends extraordinary performance with unparalleled craftsmanship. Every inch of its interior is hand-finished by master craftsmen in Crewe, England. True automotive artistry.",
     tagline: "The world's most extraordinary SUV.",
   },
   {
@@ -77,7 +77,7 @@ export const CARS: Car[] = [
   },
   {
     slug: "corvette-c8-white",
-    name: "Corvette C8 — White",
+    name: "Corvette C8 White",
     brand: "Chevrolet",
     type: "Sports",
     price: 800,
@@ -89,12 +89,12 @@ export const CARS: Car[] = [
     ],
     specs: { topSpeed: "312 km/h", zeroToSixty: "2.9 sec", horsepower: "495 hp", engine: "6.2L LT2 V8", transmission: "8-Speed DCT", seats: 2 },
     features: ["Mid-Engine Layout", "Performance Data Recorder", "Bose Premium Audio", "GT2 Sport Seats", "Electronic Limited Slip Diff", "Magnetic Selective Ride Control"],
-    description: "America's supercar, reimagined in Arctic White. The mid-engine C8 Corvette is a revolution in American performance — delivering exotic-car thrills with an iconic silhouette that commands every street it drives down.",
+    description: "America's supercar, reimagined in Arctic White. The mid-engine C8 Corvette is a revolution in American performance, delivering exotic-car thrills with an iconic silhouette that commands every street it drives down.",
     tagline: "America's mid-engine revolution.",
   },
   {
     slug: "corvette-c8-red",
-    name: "Corvette C8 — Red",
+    name: "Corvette C8 Red",
     brand: "Chevrolet",
     type: "Sports",
     price: 850,
@@ -106,7 +106,7 @@ export const CARS: Car[] = [
     ],
     specs: { topSpeed: "312 km/h", zeroToSixty: "2.9 sec", horsepower: "495 hp", engine: "6.2L LT2 V8 (Z51)", transmission: "8-Speed DCT", seats: 2 },
     features: ["Z51 Performance Package", "Mid-Engine Layout", "Carbon Fiber Splitter", "Bose Premium Audio", "Sport Bucket Seats", "Magnetic Selective Ride Control"],
-    description: "The Torch Red C8 Corvette is a statement on wheels. With the Z51 performance package and mid-engine balance, it corners like nothing else wearing an American badge — aggressive, loud, and absolutely captivating.",
+    description: "The Torch Red C8 Corvette is a statement on wheels. With the Z51 performance package and mid-engine balance, it corners like nothing else wearing an American badge. Aggressive, loud, and absolutely captivating.",
     tagline: "Red-hot American performance.",
   },
   {
@@ -123,7 +123,7 @@ export const CARS: Car[] = [
     ],
     specs: { topSpeed: "210 km/h", zeroToSixty: "6.1 sec", horsepower: "420 hp", engine: "6.2L V8", transmission: "10-Speed Auto", seats: 7 },
     features: ["AKG Studio Reference Audio", "Super Cruise Hands-Free Driving", "Curved OLED Display", "Power Running Boards", "Air Ride Adaptive Suspension", "Rear Entertainment System"],
-    description: "The Cadillac Escalade is the definitive American luxury SUV. Bold, commanding, and loaded with technology — including the world's first curved OLED display in an SUV — it makes every trip feel like a first-class experience.",
+    description: "The Cadillac Escalade is the definitive American luxury SUV. Bold, commanding, and loaded with technology including the world's first curved OLED display in an SUV. It makes every trip feel like a first-class experience.",
     tagline: "Command every road.",
   },
 ];

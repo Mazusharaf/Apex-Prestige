@@ -35,9 +35,9 @@ const VALUES = [
   { icon: Shield, title: "Fully Insured", desc: "Every vehicle and every driver is covered with comprehensive insurance from the moment you take the wheel." },
   { icon: Star, title: "White-Glove Service", desc: "We deliver the car to you, brief you on every feature, and remain on call for the duration of your rental." },
   { icon: Clock, title: "90-Minute Delivery", desc: "Select your vehicle, confirm your booking, and we'll have it at your door within 90 minutes anywhere in Springfield." },
-  { icon: Award, title: "Show-Room Condition", desc: "Each vehicle is hand-detailed before every rental — inside, outside, and mechanically inspected." },
+  { icon: Award, title: "Show-Room Condition", desc: "Each vehicle is hand-detailed before every rental, inside, outside, and mechanically inspected." },
   { icon: Users, title: "Dedicated Concierge", desc: "A personal concierge is assigned to every booking to handle any request from first contact to return." },
-  { icon: MapPin, title: "Springfield Coverage", desc: "We deliver across the entire Springfield metro area — and beyond. Metro-wide delivery available." },
+  { icon: MapPin, title: "Springfield Coverage", desc: "We deliver across the entire Springfield metro area and beyond. Metro-wide delivery available." },
 ];
 
 const fadeUp = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0 } };
@@ -61,7 +61,7 @@ export default function About() {
                 Founded in 2018, Apex Prestige was born from a simple belief: extraordinary vehicles deserve extraordinary experiences. What started as a single Porsche and a passion for performance has grown into Springfield's most trusted exotic car rental company.
               </p>
               <p className="text-gray-500 leading-relaxed">
-                We're not just a rental company. We're curators of experiences — pairing you with the world's finest machines and wrapping the entire process in concierge-level service that removes every friction point. From first contact to final handoff, the entire experience is as premium as the vehicles themselves.
+                We're not just a rental company. We're curators of experiences, pairing you with the world's finest machines and wrapping the entire process in concierge-level service that removes every friction point. From first contact to final handoff, the entire experience is as premium as the vehicles themselves.
               </p>
             </motion.div>
             <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }} className="relative">

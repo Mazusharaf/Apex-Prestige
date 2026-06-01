@@ -138,7 +138,7 @@ export default function Booking() {
               >
                 <option value="">Choose a vehicle...</option>
                 {CARS.map((c) => (
-                  <option key={c.slug} value={c.slug}>{c.name} — ${c.price}/day</option>
+                  <option key={c.slug} value={c.slug}>{c.name} | ${c.price}/day</option>
                 ))}
               </select>
             </div>

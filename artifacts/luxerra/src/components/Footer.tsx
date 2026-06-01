@@ -15,7 +15,7 @@ export function Footer() {
               <img src={logoSrc} alt="Apex Prestige" className="h-10 w-auto object-contain" />
             </Link>
             <p className="text-sm text-gray-500 leading-relaxed">
-              Springfield's premier exotic car rental — delivering extraordinary vehicles to your door since 2018.
+              Springfield's premier exotic car rental, delivering extraordinary vehicles to your door since 2018.
             </p>
             <div className="space-y-2 text-sm text-gray-500">
               <div className="flex items-center gap-2.5">
