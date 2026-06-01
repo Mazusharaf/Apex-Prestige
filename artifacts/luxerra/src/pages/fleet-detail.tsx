@@ -182,7 +182,7 @@ export default function FleetDetail() {
                   </Button>
                 </Link>
 
-                <p className="text-xs text-center text-gray-600">
+                <p className="text-xs text-center text-gray-600 mt-2">
                   Free cancellation 48+ hours before pickup
                 </p>
               </motion.div>
