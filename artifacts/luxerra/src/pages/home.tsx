@@ -136,7 +136,7 @@ const STEPS = [
   { num: "01", title: "Choose Vehicle", desc: "Browse our fleet and select your dream car.", href: "/fleet" },
   { num: "02", title: "Book Online", desc: "Fill out our simple booking form in minutes.", href: "/fleet" },
   { num: "03", title: "Confirm & Pay", desc: "Secure your reservation with easy payment.", href: "/contact" },
-  { num: "04", title: "Get Delivered", desc: "We bring the car to your door in 90 minutes.", href: null },
+  { num: "04", title: "Get Delivered", desc: "We bring the car directly to your door.", href: null },
 ];
 
 const FAQS = [
@@ -286,7 +286,7 @@ export default function Home() {
             variants={{ hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }}
             transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            Experience the thrill of driving the world's most extraordinary vehicles delivered to your door in 90 minutes.
+            Experience the thrill of driving the world's most extraordinary vehicles delivered directly to your door.
           </motion.p>
 
           {/* Buttons */}

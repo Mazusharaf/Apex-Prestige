@@ -191,7 +191,7 @@ export default function FleetDetail() {
               <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="bg-[#121212] border border-white/5 rounded-2xl p-5 space-y-3">
                 {[
                   { icon: Shield, label: "Fully Insured", sub: "Comprehensive coverage on every rental" },
-                  { icon: Clock, label: "90-Min Delivery", sub: "We bring the car to your door" },
+                  { icon: Clock, label: "Fast Delivery", sub: "We bring the car to your location" },
                   { icon: Star, label: "White-Glove Service", sub: "Concierge team available 7 days" },
                 ].map(({ icon: Icon, label, sub }) => (
                   <div key={label} className="flex items-start gap-3">

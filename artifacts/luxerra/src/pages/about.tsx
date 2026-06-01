@@ -34,7 +34,7 @@ const STATS = [
 const VALUES = [
   { icon: Shield, title: "Fully Insured", desc: "Every vehicle and every driver is covered with comprehensive insurance from the moment you take the wheel." },
   { icon: Star, title: "White-Glove Service", desc: "We deliver the car to you, brief you on every feature, and remain on call for the duration of your rental." },
-  { icon: Clock, title: "90-Minute Delivery", desc: "Select your vehicle, confirm your booking, and we'll have it at your door within 90 minutes anywhere in Springfield." },
+  { icon: Clock, title: "Fast Delivery", desc: "Select your vehicle, confirm your booking, and we'll have it delivered directly to your door anywhere in Springfield." },
   { icon: Award, title: "Show-Room Condition", desc: "Each vehicle is hand-detailed before every rental, inside, outside, and mechanically inspected." },
   { icon: Users, title: "Dedicated Concierge", desc: "A personal concierge is assigned to every booking to handle any request from first contact to return." },
   { icon: MapPin, title: "Springfield Coverage", desc: "We deliver across the entire Springfield metro area and beyond. Metro-wide delivery available." },
@@ -181,7 +181,7 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent flex items-center">
               <div className="px-10 md:px-16 max-w-xl space-y-5">
                 <h2 className="text-3xl md:text-4xl font-bold leading-snug">Ready to Experience the Difference?</h2>
-                <p className="text-gray-300">Browse our full fleet and reserve your dream car today. Delivery in 90 minutes.</p>
+                <p className="text-gray-300">Browse our full fleet and reserve your dream car today. We deliver directly to your door.</p>
                 <a href="/fleet" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-full transition-colors">
                   Explore the Fleet
                 </a>
