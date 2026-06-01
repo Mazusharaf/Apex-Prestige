@@ -307,9 +307,9 @@ export default function Home() {
               <Button
                 variant="outline"
                 className="rounded-lg px-8 h-12 text-sm tracking-wide border-white/30 text-white bg-transparent hover:bg-white/10 hover:border-white/50"
-                data-testid="hero-book"
+                data-testid="hero-contact"
               >
-                Book Now
+                Contact
               </Button>
             </Link>
           </motion.div>
