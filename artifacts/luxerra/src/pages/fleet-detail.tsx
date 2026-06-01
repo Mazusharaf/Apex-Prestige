@@ -47,7 +47,8 @@ export default function FleetDetail() {
         </div>
 
         {/* Hero Gallery */}
-        <div className="max-w-7xl mx-auto px-6 mb-12">
+        <div className="max-w-7xl mx-auto px-6 mb-12 space-y-3">
+          {/* Main image */}
           <div className="relative rounded-3xl overflow-hidden aspect-[16/7] bg-[#111] group">
             <AnimatePresence mode="wait">
               <motion.img
@@ -61,7 +62,7 @@ export default function FleetDetail() {
                 transition={{ duration: 0.45 }}
               />
             </AnimatePresence>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
             {car.gallery.length > 1 && (
               <>
@@ -71,27 +72,24 @@ export default function FleetDetail() {
                 <button onClick={nextGallery} className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center hover:bg-black/80 transition-colors opacity-0 group-hover:opacity-100">
                   <ChevronRight className="w-5 h-5" />
                 </button>
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
-                  {car.gallery.map((_, i) => (
-                    <button key={i} onClick={() => setGalleryIndex(i)} className={`w-1.5 h-1.5 rounded-full transition-all ${i === galleryIndex ? "bg-white w-4" : "bg-white/40"}`} />
-                  ))}
-                </div>
               </>
             )}
+          </div>
 
-            {/* Thumbnail strip */}
-            <div className="absolute bottom-6 right-6 flex gap-2">
+          {/* Thumbnail strip */}
+          {car.gallery.length > 1 && (
+            <div className="flex gap-2">
               {car.gallery.map((img, i) => (
                 <button
                   key={i}
                   onClick={() => setGalleryIndex(i)}
-                  className={`w-16 h-10 rounded-lg overflow-hidden border-2 transition-all ${i === galleryIndex ? "border-white" : "border-transparent opacity-60 hover:opacity-100"}`}
+                  className={`flex-1 aspect-[16/9] rounded-xl overflow-hidden border-2 transition-all ${i === galleryIndex ? "border-red-500 opacity-100" : "border-transparent opacity-50 hover:opacity-80"}`}
                 >
                   <img src={img} alt="" className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
-          </div>
+          )}
         </div>
 
         {/* Content: Info + Booking CTA */}
