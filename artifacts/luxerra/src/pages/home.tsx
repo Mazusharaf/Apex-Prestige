@@ -57,36 +57,12 @@ const HERO_SLIDES = [
 ];
 
 const FLEET = [
-  {
-    make: "Rolls Royce",
-    model: "Cullinan",
-    img: rollsImg,
-  },
-  {
-    make: "Bentley",
-    model: "Bentayga",
-    img: bentleyImg,
-  },
-  {
-    make: "Lamborghini",
-    model: "Huracan",
-    img: lamboImg,
-  },
-  {
-    make: "Corvette",
-    model: "C8 White",
-    img: corvetteWhiteImg,
-  },
-  {
-    make: "Corvette",
-    model: "C8 Red",
-    img: corvetteRedImg,
-  },
-  {
-    make: "Cadillac",
-    model: "Escalade",
-    img: cadillacImg,
-  },
+  { make: "Rolls-Royce", model: "Cullinan", img: rollsImg, slug: "rolls-royce-cullinan" },
+  { make: "Bentley", model: "Bentayga", img: bentleyImg, slug: "bentley-bentayga" },
+  { make: "Lamborghini", model: "Huracán", img: lamboImg, slug: "lamborghini-huracan" },
+  { make: "Corvette", model: "C8 White", img: corvetteWhiteImg, slug: "corvette-c8-white" },
+  { make: "Corvette", model: "C8 Red", img: corvetteRedImg, slug: "corvette-c8-red" },
+  { make: "Cadillac", model: "Escalade", img: cadillacImg, slug: "cadillac-escalade" },
 ];
 
 const TESTIMONIALS = [
@@ -418,7 +394,7 @@ export default function Home() {
                 <div className="p-5">
                   <h3 className="text-lg font-bold text-white">{car.make}</h3>
                   <p className="text-sm text-gray-500 mb-4">{car.model}</p>
-                  <Link href="/fleet">
+                  <Link href={`/fleet/${car.slug}`}>
                     <Button
                       variant="outline"
                       className="w-full rounded-lg border-white/15 text-white bg-transparent hover:bg-red-600 hover:border-red-600 hover:text-white text-sm h-9 transition-all duration-200"
