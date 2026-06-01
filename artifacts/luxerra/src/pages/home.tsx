@@ -57,12 +57,12 @@ const HERO_SLIDES = [
 ];
 
 const FLEET = [
-  { make: "Rolls-Royce", model: "Cullinan", img: rollsImg, slug: "rolls-royce-cullinan" },
-  { make: "Bentley", model: "Bentayga", img: bentleyImg, slug: "bentley-bentayga" },
-  { make: "Lamborghini", model: "Huracán", img: lamboImg, slug: "lamborghini-huracan" },
-  { make: "Corvette", model: "C8 White", img: corvetteWhiteImg, slug: "corvette-c8-white" },
-  { make: "Corvette", model: "C8 Red", img: corvetteRedImg, slug: "corvette-c8-red" },
-  { make: "Cadillac", model: "Escalade", img: cadillacImg, slug: "cadillac-escalade" },
+  { make: "Rolls-Royce", model: "Cullinan", img: rollsImg, slug: "rolls-royce-cullinan", price: 1800 },
+  { make: "Bentley", model: "Bentayga", img: bentleyImg, slug: "bentley-bentayga", price: 1200 },
+  { make: "Lamborghini", model: "Huracán", img: lamboImg, slug: "lamborghini-huracan", price: 1500 },
+  { make: "Corvette", model: "C8 White", img: corvetteWhiteImg, slug: "corvette-c8-white", price: 800 },
+  { make: "Corvette", model: "C8 Red", img: corvetteRedImg, slug: "corvette-c8-red", price: 850 },
+  { make: "Cadillac", model: "Escalade", img: cadillacImg, slug: "cadillac-escalade", price: 650 },
 ];
 
 const TESTIMONIALS = [
@@ -392,17 +392,34 @@ export default function Home() {
                 </div>
                 {/* Info */}
                 <div className="p-5">
-                  <h3 className="text-lg font-bold text-white">{car.make}</h3>
-                  <p className="text-sm text-gray-500 mb-4">{car.model}</p>
-                  <Link href={`/fleet/${car.slug}`}>
-                    <Button
-                      variant="outline"
-                      className="w-full rounded-lg border-white/15 text-white bg-transparent hover:bg-red-600 hover:border-red-600 hover:text-white text-sm h-9 transition-all duration-200"
-                      data-testid={`fleet-see-more-${i}`}
-                    >
-                      View Details
-                    </Button>
-                  </Link>
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="text-lg font-bold text-white">{car.make}</h3>
+                      <p className="text-sm text-gray-500">{car.model}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-lg font-bold text-white">${car.price.toLocaleString()}</p>
+                      <p className="text-xs text-gray-500">/ day</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <Link href={`/fleet/${car.slug}`} className="flex-1">
+                      <Button
+                        variant="outline"
+                        className="w-full rounded-lg border-white/15 text-white bg-transparent hover:bg-white/10 hover:border-white/30 text-sm h-9 transition-all duration-200"
+                        data-testid={`fleet-see-more-${i}`}
+                      >
+                        Details
+                      </Button>
+                    </Link>
+                    <Link href={`/booking?car=${car.slug}`} className="flex-1">
+                      <Button
+                        className="w-full rounded-lg bg-red-600 hover:bg-red-700 text-white text-sm h-9 border-0 transition-all duration-200"
+                      >
+                        Book Now
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             ))}
